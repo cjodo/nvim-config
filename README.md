@@ -25,7 +25,8 @@ Neovim's configurations are located under the following paths, depending on your
 | Windows (cmd)| `%userprofile%\AppData\Local\nvim\` |
 | Windows (powershell)| `$env:USERPROFILE\AppData\Local\nvim\` |
 
-Clone my repo:
+
+# Clone my repo:
 
 - on Linux and Mac
 ```sh
