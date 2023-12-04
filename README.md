@@ -61,7 +61,7 @@ nvim --headless "+Lazy! sync" +qa
 
 ## Added Plugins
 
-I am still relatively new to neovim but these are the plugins I've tried and enjoy :).
+I am still relatively new to neovim but these are the plugins I've added and enjoy:).
 
 * [alpha-nvim](https://github.com/goolord/alpha-nvim) 
 * [auto-pairs](https://github.com/jiangmiao/auto-pairs) 
