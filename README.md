@@ -1,6 +1,6 @@
 
 
-### Introduction
+## Introduction
 
 My fork of the [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) neovim configuration.
 
@@ -26,7 +26,7 @@ Neovim's configurations are located under the following paths, depending on your
 | Windows (powershell)| `$env:USERPROFILE\AppData\Local\nvim\` |
 
 
-# Clone my repo:
+### Clone my repo:
 
 - on Linux and Mac
 ```sh
