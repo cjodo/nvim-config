@@ -1,4 +1,9 @@
 
+vim.cmd('hi LineNr guibg=NONE')
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("v", "jk", "<Esc>")
 
@@ -14,3 +19,5 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 vim.keymap.set('n','B','^i', { noremap = true, silent = true, desc = 'edit at beginning of line' })
 
 vim.keymap.set('n', '<leader>ff', '<cmd>NvimTreeOpen<CR>')
+
+

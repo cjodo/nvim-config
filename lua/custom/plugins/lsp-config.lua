@@ -19,7 +19,6 @@ return {
         filetypes = {"css", "html", "javascript", "javascriptreact", "typescriptreact"},
         syntaxProfiles = {
             javascript = 'jsx'
-        }
+        },
     }),
-
 }

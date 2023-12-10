@@ -1,14 +1,4 @@
---[[
-
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
--- [[ Install `lazy.nvim` plugin manager ]]
---    https://github.com/folke/lazy.nvim
---    `:help lazy.nvim.txt` for more info
-
 require("custom.signs")
-
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -19,7 +9,7 @@ vim.opt.wrap = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-
+--Make line number bar transparent
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -32,15 +22,8 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   }
 end
+
 vim.opt.rtp:prepend(lazypath)
-
--- [[ Configure plugins ]]
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
-
 
 require('lazy').setup({
 
@@ -48,11 +31,11 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
-  -- Detect tabstop and shiftwidth automatically
+  -- Detect tabstop and shiftwidth 
   'tpope/vim-sleuth',
 
   {
-    -- LSP Configuration & Plugins
+    -- LSP 
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
