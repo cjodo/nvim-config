@@ -3,9 +3,9 @@ return {
     'rebelot/kanagawa.nvim',
     config = function()
         require("kanagawa").setup({
-                terminalColors = true,
-                transparent = true,
-                dimInactive = false,
+        terminalColors = true,
+        transparent = true,
+        dimInactive = false,
         colors = {
           palette = {
             oldWhite = "#cac5a5",
@@ -13,8 +13,7 @@ return {
             oniViolet = "#d27ed5"
           }
         }
-  
-        })
+      })
       vim.cmd.colorscheme 'kanagawa'
     end
   },

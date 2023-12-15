@@ -4,7 +4,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.relativenumber = true
 vim.opt.wrap = true
-
+vim.opt.termguicolors = true
 --for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -532,5 +532,6 @@ cmp.setup {
   },
 }
 require("custom.remap")
+require("colorizer").setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
