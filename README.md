@@ -4,7 +4,7 @@
 
 My fork of the [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) neovim configuration.
 
-It adds some plugins on top of the plugins already included in kickstart that I find helpful and make the neovim experience amazing!
+It adds some plugins on top of the plugins already included in kickstart that I find helpful 
 
 ## Installation
 
