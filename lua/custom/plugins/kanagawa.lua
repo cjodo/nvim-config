@@ -11,10 +11,16 @@ return {
             oldWhite = "#cac5a5",
             crystalBlue = "#6db2dc",
             oniViolet = "#d27ed5"
+          },
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none"
+              }
+            }
           }
-        }
+        },
       })
-      vim.cmd.colorscheme 'kanagawa'
     end
   },
 }

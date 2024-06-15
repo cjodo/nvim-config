@@ -9,7 +9,9 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     config = function()
-        require("nvim-tree").setup {
+        local nt = require("nvim-tree")
+        nt.setup {
+            tab = nil,
             disable_netrw = true,
             hijack_netrw = true,
             respect_buf_cwd = true,

@@ -1,3 +1,4 @@
+
 local lspconfig = require('lspconfig')
 local mason_config = require('mason-lspconfig')
 
@@ -12,13 +13,15 @@ return {
     }
 }),
     mason_config.setup({
-      ensure_installed = {'cssls', 'emmet_language_server', 'html', 'lua_ls', 'pyright', 'tsserver'}
+      ensure_installed = {'cssls', 'emmet_language_server', 'html', 'lua_ls', 'pyright', 'tsserver', 'gopls'}
     }),
 
     lspconfig.emmet_language_server.setup({
-        filetypes = {"css", "html", "javascript", "javascriptreact", "typescriptreact"},
+        filetypes = { "js", "css", "html", "javascriptreact", "typescriptreact"},
         syntaxProfiles = {
             javascript = 'jsx'
         },
     }),
+
+    lspconfig.gopls.setup({})
 }

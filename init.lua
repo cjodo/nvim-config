@@ -1,15 +1,33 @@
-require("custom.signs")
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.relativenumber = true
 vim.opt.wrap = true
 vim.opt.termguicolors = true
+
 --for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
---Make line number bar transparent
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 4
+vim.opt.smarttab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+-- vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
+--   callback = function ()
+--     print(vim.bo.filetype)
+--   end
+-- })
+
+vim.api.nvim_create_user_command(
+  'Help',
+  function(args)
+    vim.cmd.help(args.args)
+    vim.cmd.only()
+  end,
+  {nargs = 1, complete = 'help'}
+)
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -18,7 +36,7 @@ if not vim.loop.fs_stat(lazypath) then
     'clone',
     '--filter=blob:none',
     'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
+    '--branch=stable', -- latest stable release'
     lazypath,
   }
 end
@@ -120,38 +138,19 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
+  -- {
+  --   -- Add indentation guides even on blank lines
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   -- Enable `lukas-reineke/indent-blankline.nvim`
+  --   -- See `:help ibl`
+  --   main = 'ibl',
+  --   opts = {},
+  -- },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
-      },
-    },
-  },
 
   {
     -- Highlight, edit, and navigate code
@@ -162,7 +161,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   -- Over to lua/custom/plugins
- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 
@@ -173,7 +172,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = 'v'
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -443,10 +442,10 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   -- gopls = {},
-   pyright = {},
+  pyright = {},
   -- rust_analyzer = {},
-   tsserver = {},
-   html = { filetypes = { 'html', 'twig', 'hbs'} },
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
     Lua = {

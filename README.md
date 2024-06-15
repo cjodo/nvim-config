@@ -1,13 +1,4 @@
 
-
-## Introduction
-
-My fork of the [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) neovim configuration.
-
-It adds some plugins on top of the plugins already included in kickstart that I find helpful 
-
-## Installation
-
 > **NOTE** 
 > [Backup](#FAQ) your previous configuration (if any exists)
 
@@ -50,23 +41,4 @@ Start Neovim
 ```sh
 nvim
 ```
-
-The `Lazy` plugin manager will start automatically on the first run and install the configured plugins - as can be seen in the introduction video. After the installation is complete you can press `q` to close the `Lazy` UI and **you are ready to go**! Next time you run nvim `Lazy` will no longer show up.
-
-If you would prefer to hide this step and run the plugin sync from the command line, you can use:
-
-```sh
-nvim --headless "+Lazy! sync" +qa
-```
-
-
-## Added Plugins
-
-I am still relatively new to neovim but these are the plugins I've added and enjoy:).
-
-* [alpha-nvim](https://github.com/goolord/alpha-nvim) 
-* [auto-pairs](https://github.com/jiangmiao/auto-pairs) 
-* [harpoon](https://github.com/ThePrimeagen/harpoon) 
-* [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) 
-
 
