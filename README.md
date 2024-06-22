@@ -42,3 +42,4 @@ Start Neovim
 nvim
 ```
 
+* This is a modified version of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
