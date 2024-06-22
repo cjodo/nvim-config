@@ -1,11 +1,11 @@
 -- In plugins/convert.lua
 
 return {
+  'cjodo/convert.nvim',
   dependencies = {
     'MunifTanjim/nui.nvim'
   },
-  dir = '/home/codo/plugins/convert.nvim',
-  config = function ()
+  config = function()
     vim.keymap.set("n", "<leader>cn", "<cmd>ConvertFindNext<CR>", { desc = "Find next convertable unit" })
     vim.keymap.set("n", "<leader>cc", "<cmd>ConvertFindCurrent<CR>", { desc = "Find convertable unit" })
   end

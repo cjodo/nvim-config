@@ -26,7 +26,7 @@ vim.api.nvim_create_user_command(
     vim.cmd.help(args.args)
     vim.cmd.only()
   end,
-  {nargs = 1, complete = 'help'}
+  { nargs = 1, complete = 'help' }
 )
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -49,11 +49,11 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
-  -- Detect tabstop and shiftwidth 
+  -- Detect tabstop and shiftwidth
   'tpope/vim-sleuth',
 
   {
-    -- LSP 
+    -- LSP
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
@@ -84,7 +84,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -160,8 +160,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  -- Over to lua/custom/plugins
-  { import = 'custom.plugins' },
+  { import = 'cjodo.plugins' },
 }, {})
 
 
@@ -274,7 +273,7 @@ local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
     require('telescope.builtin').live_grep({
-      search_dirs = {git_root},
+      search_dirs = { git_root },
     })
   end
 end
@@ -445,7 +444,7 @@ local servers = {
   pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
     Lua = {
@@ -530,7 +529,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-require("custom.remap")
+require("cjodo.remap")
 require("colorizer").setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
