@@ -17,7 +17,7 @@ return {
     }),
 
     lspconfig.emmet_language_server.setup({
-        filetypes = { "js", "css", "html", "javascriptreact", "typescriptreact"},
+        filetypes = { "js", "css", "html", "javascriptreact", "typescriptreact", "php"},
         syntaxProfiles = {
             javascript = 'jsx'
         },

@@ -1,25 +1,4 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.opt.relativenumber = true
-vim.opt.wrap = true
-vim.opt.termguicolors = true
-vim.opt.tabline = "  "
-
---for nvim-tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
-vim.opt.smartindent = true
-vim.opt.autoindent = true
-
--- vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
---   callback = function ()
---     print(vim.bo.filetype)
---   end
--- })
+require("cjodo.core")
 
 vim.api.nvim_create_user_command(
   'Help',
@@ -57,11 +36,6 @@ require('lazy').setup({
       vim.cmd.colorscheme('github_dark')
     end
   },
-
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth 
   'tpope/vim-sleuth',
@@ -155,8 +129,6 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- Fuzzy Finder (files, lsp, etc)
-
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -166,7 +138,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   -- Over to lua/custom/plugins
- { import = 'custom.plugins' },
+ { import = 'cjodo.plugins' },
 }, {})
 
 
@@ -183,11 +155,8 @@ vim.o.mouse = 'v'
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
-
 -- Enable break indent
 vim.o.breakindent = true
-
--- Save undo history
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
@@ -217,14 +186,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -235,7 +198,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -286,7 +248,6 @@ end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
--- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
@@ -427,19 +388,9 @@ require('which-key').add({
   {'<leader>f', group = "file" },
 })
 
--- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
 require('mason').setup()
 require('mason-lspconfig').setup()
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
   -- gopls = {},
@@ -481,8 +432,6 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- [[ Configure nvim-cmp ]]
--- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
@@ -531,7 +480,5 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-require("custom.remap")
 require("colorizer").setup()
--- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
