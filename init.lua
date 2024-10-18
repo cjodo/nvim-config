@@ -137,7 +137,6 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  -- Over to lua/custom/plugins
  { import = 'cjodo.plugins' },
 }, {})
 
