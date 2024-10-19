@@ -23,4 +23,6 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")     -- move line down(n)
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
-vim.keymap.set('n', '<leader>ff', "<cmd>NvimTreeOpen<CR><cmd>")
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+
+vim.keymap.set('n', '<leader>ff', "<cmd>Explore<CR><cmd>")
