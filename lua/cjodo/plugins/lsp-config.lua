@@ -13,7 +13,7 @@ return {
     }
 }),
     mason_config.setup({
-      ensure_installed = {'cssls', 'emmet_language_server', 'html', 'lua_ls', 'pyright', 'ts_ls'}
+      ensure_installed = {'cssls', 'emmet_language_server', 'html', 'lua_ls', 'gopls', 'ts_ls'}
     }),
 
     lspconfig.emmet_language_server.setup({

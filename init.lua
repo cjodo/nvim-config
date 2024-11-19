@@ -37,9 +37,6 @@ require('lazy').setup({
     end
   },
 
-  -- Detect tabstop and shiftwidth 
-  'tpope/vim-sleuth',
-
   {
     -- LSP 
     'neovim/nvim-lspconfig',
@@ -264,6 +261,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set("n", "<leader>e", ":lua vim.diagnostic.open_float(nil, {focus=false, scope=\"cursor\"})<CR>")
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
 -- [[ Configure Treesitter ]]
@@ -381,21 +379,12 @@ local on_attach = function(_, bufnr)
 end
 
 -- document existing key chains
-require('which-key').add({
-  {'<leader>s', group = "search" },
-  {'<leader>w', group = "workspace" },
-  {'<leader>f', group = "file" },
-})
 
 require('mason').setup()
 require('mason-lspconfig').setup()
 
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-   pyright = {},
-  -- rust_analyzer = {},
-   ts_ls = {},
+  rust_analyzer = {},
    html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
